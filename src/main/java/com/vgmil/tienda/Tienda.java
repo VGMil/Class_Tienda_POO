@@ -15,6 +15,7 @@ public class Tienda {
         //Omitir Menu para pruebas
         controlador.iniciarCliente();
         controlador.insertarProductos(1);
-        controlador.revisarProductos();
+        controlador.imprimirFactura();
+        
     }
 }

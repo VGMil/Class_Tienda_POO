@@ -9,9 +9,9 @@ import java.util.Scanner;
  * Primer Sistema donde se ejecutara todo el proceso
  */
 public class Controlador {
-    Scanner leer;
-    Cliente myCliente = new Cliente();
-    Factura myFactura = new Factura();
+    private Scanner leer;
+    private Cliente myCliente = new Cliente();
+    private Factura myFactura = new Factura();
 
     public Controlador(Scanner leer) {
         this.leer = leer;
@@ -26,7 +26,9 @@ public class Controlador {
         myCliente.setCedula(leer.next());
         
         System.out.println("Cliente Creado con Exito");
-        System.out.println(myCliente.toString());
+        myFactura.setCliente(myCliente);
+        System.out.println(myFactura.getCliente().toString());
+        
     }
     
     public void insertarProductos(int cantidad){
@@ -47,12 +49,14 @@ public class Controlador {
         }
     }
     
-    public void revisarProductos(){
-        for (int i = 0; i < myFactura.getCantidadProductos(); i++) {
-            //Mucho mas optimizado
-            System.out.println(myFactura.getProductos()[i].toString());
-        }
+    public void imprimirFactura(){
+        myFactura.calculateSubTotal();
+        myFactura.calculateIVA(12);
+        myFactura.calculateTotal();
+        
+        System.out.println(myFactura.toString());
     }
+
     
     
 }

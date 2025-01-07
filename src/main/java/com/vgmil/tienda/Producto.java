@@ -8,9 +8,9 @@ package com.vgmil.tienda;
  * Modelo necesario para el Sistema
  */
 public class Producto {
-    int id;
-    String nombre;
-    double precio;
+    private int id;
+    private String nombre;
+    private double precio;
     
     /*Sobrecarga de Constructor*/
     //Generar Cliente con datos 
@@ -56,8 +56,5 @@ public class Producto {
     public double getPrecio() {
         return precio;
     }
-    
-    
-    
     
 }

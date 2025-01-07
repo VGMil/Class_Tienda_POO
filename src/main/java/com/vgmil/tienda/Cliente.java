@@ -7,9 +7,9 @@ package com.vgmil.tienda;
  * Modelo de Cliente necesario para el sistema
  */
 public class Cliente {
-    String nombre;
-    String apellido;
-    String cedula;
+    private String nombre;
+    private String apellido;
+    private String cedula;
     
     /*Sobrecarga de Constructor*/
     //Generar Cliente con datos 
