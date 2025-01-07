@@ -1,5 +1,8 @@
 
 package com.vgmil.tienda;
+
+import java.util.Scanner;
+
 /**
  *
  * @author V6M1000
@@ -7,6 +10,8 @@ package com.vgmil.tienda;
 public class Tienda {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Scanner leer = new Scanner(System.in);
+        Controlador controlador = new Controlador(leer);
+        controlador.iniciarCliente();
     }
 }
