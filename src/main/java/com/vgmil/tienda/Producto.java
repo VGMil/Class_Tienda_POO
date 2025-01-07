@@ -7,7 +7,7 @@ package com.vgmil.tienda;
  * 
  * Modelo necesario para el Sistema
  */
-public class Producto {
+public abstract class Producto {
     private int id;
     private String nombre;
     private double precio;

@@ -33,15 +33,43 @@ public class Controlador {
     
     public void insertarProductos(int cantidad){
         Producto[] listaProductos = new Producto[cantidad]; //Arreglo de productos
-        Producto newProducto = new Producto(); //nuevo producto
-        
+        Producto newProducto;
+        int id;
+        String nombre;
+        double precio;
+        int opcion=0;
         for (int i = 0; i < cantidad; i++) {
+            //Seleccionar que categoria es del producto
+            do{
+                System.out.println("Ingrese un numero del Menu para seleccionar la categoria del producto");
+                System.out.println("1) Software");
+                System.out.println("2) Electronica");
+                opcion = leer.nextInt();
+            }while(opcion != 1 && opcion !=2);
+            
+            //Datos de producto normal
             System.out.println("ID Producto");
-            newProducto.setId(leer.nextInt());
+            id = leer.nextInt();
             System.out.println("Nombre del Producto");
-            newProducto.setNombre(leer.next());
+            nombre = leer.next();
             System.out.println("Precio del Producto");
-            newProducto.setPrecio(leer.nextDouble());
+            precio = leer.nextDouble();
+            
+            
+            //Factory: Crear un objeto segun la eleccion del cliente con ayuda del polimorfismo
+            if(opcion == 1){
+                System.out.println("¿Tiene Portada? Si o No");
+                boolean portada = leer.next().equalsIgnoreCase("si");
+                System.out.println("Autor del Producto");
+                String autor = leer.next();
+                newProducto = new ProductoSoftware(portada, autor, id, nombre, precio);
+            }else{
+                System.out.println("¿Tiene Manual? Si o No");
+                boolean manual = leer.next().equalsIgnoreCase("si");
+                System.out.println("Empresa Creadora del Producto");
+                String empresa = leer.next();
+                newProducto = new ProductoElectronica(manual, empresa, id, nombre, precio);
+            }
             //Insertar el nuevo producto en la lista de Productos del cliente
             listaProductos[i]=newProducto;
             //Insertar nuestra lista en la factura

@@ -49,20 +49,28 @@ public class Factura {
         }
         return list;
     }
-    
     public void calculateSubTotal(){
         for (int i = 0; i < productos.length; i++) {
             this.subtotal += productos[i].getPrecio();
         }
     }
-    
     public void calculateIVA(int percentage){
         this.iva = this.subtotal*(percentage/100.0);
     }
-    
     public void calculateTotal(){
         this.total = this.subtotal + this.iva;
     }
+    @Override
+    public String toString() {
+        return "Cliente: "+this.cliente.toString()+
+                "\nProductos:\n"+
+                listProductos()+
+                "\nSubtotal: "+this.subtotal+
+                "\nIVA: "+ this.iva+
+                "\nTotal:"+this.total;
+    }
+    
+    
 /*----------------Setters----------------*/
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
@@ -73,7 +81,6 @@ public class Factura {
     }
 
     //NOTA: No se puede hacer set del IVA, Subtotal, Total puesto que se calculan.
-    
     
     /*----------------Getters----------------*/
     public Cliente getCliente() {
@@ -96,16 +103,7 @@ public class Factura {
         return total;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente: "+this.cliente.toString()+
-                "\nProductos:\n"+
-                listProductos()+
-                "\nSubtotal: "+this.subtotal+
-                "\nIVA: "+ this.iva+
-                "\nTotal:"+this.total;
-    }
-    
+
     
 
     
