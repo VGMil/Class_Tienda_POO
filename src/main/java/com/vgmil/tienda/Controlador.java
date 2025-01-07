@@ -30,35 +30,27 @@ public class Controlador {
     }
     
     public void insertarProductos(int cantidad){
-        int idsProducto[] = new int[cantidad];
-        String nombresProducto[] = new String[cantidad];
-        double preciosProducto[] = new double[cantidad];
-        //Corregir, no ayuda a que en un futuro se maneje mas productos para el cliente
-        //Plantear que sucediera con este bucle, no podemos crear una lista de productos general
-        //deberiamos crear un objeto producto incluso para operar con el
+        Producto[] listaProductos = new Producto[cantidad]; //Arreglo de productos
+        Producto newProducto = new Producto(); //nuevo producto
+        
         for (int i = 0; i < cantidad; i++) {
             System.out.println("ID Producto");
-            idsProducto[i] = leer.nextInt();
+            newProducto.setId(leer.nextInt());
             System.out.println("Nombre del Producto");
-            nombresProducto[i] = leer.next();
+            newProducto.setNombre(leer.next());
             System.out.println("Precio del Producto");
-            preciosProducto[i] = leer.nextDouble();
+            newProducto.setPrecio(leer.nextDouble());
+            //Insertar el nuevo producto en la lista de Productos del cliente
+            listaProductos[i]=newProducto;
+            //Insertar nuestra lista en la factura
+            myFactura.setProductos(listaProductos);
         }
-        
-        //Primero llenamos los vectores y luego podemos insertarlos en la factura
-        myFactura.setIdsProducto(idsProducto);
-        myFactura.setNombresProducto(nombresProducto);
-        myFactura.setPreciosProducto(preciosProducto);
-        //y si ahora quiero añadir, modificar o borrar cosas nuevas tengo que modificar todo. 
-        //ID, Nombre, precio y si hubieran mas ... ? 
     }
     
     public void revisarProductos(){
-        int idsProducto[] = myFactura.getIdsProducto();
-        String nombresProducto[] = myFactura.getNombresProducto();
-        double precioProducto[] = myFactura.getPreciosProducto();
         for (int i = 0; i < myFactura.getCantidadProductos(); i++) {
-            System.out.println("ID: "+idsProducto[i]+" Nombre: "+nombresProducto[i]+" Precio: "+precioProducto[i]);
+            //Mucho mas optimizado
+            System.out.println(myFactura.getProductos()[i].toString());
         }
     }
     

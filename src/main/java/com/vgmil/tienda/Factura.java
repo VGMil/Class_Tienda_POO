@@ -8,25 +8,21 @@ package com.vgmil.tienda;
  */
 public class Factura {
     Cliente cliente;
-    //FIX
-    int idsProducto[];
-    String nombresProducto[];
-    double[] preciosProducto;
-    //
+    Producto productos[];
     /*Sobrecarga de Constructor*/
     //Factura con Datos
-    public Factura(Cliente cliente, int[] idsProducto, String[] nombresProducto, double[] precioProducto) {
+
+    public Factura(Cliente cliente, Producto[] productos) {
         this.cliente = cliente;
-        this.idsProducto = idsProducto;
-        this.nombresProducto = nombresProducto;
-        this.preciosProducto = precioProducto;
+        this.productos = productos;
     }
+    
     //Factura sin Datos
     public Factura() {}
    
     //Seccion de metodos de Factura
     public int getCantidadProductos(){
-        return idsProducto.length;
+        return productos.length;
     }
     
 /*----------------Setters----------------*/
@@ -34,35 +30,20 @@ public class Factura {
         this.cliente = cliente;
     }
 
-    public void setIdsProducto(int[] idsProducto) {
-        this.idsProducto = idsProducto;
+    public void setProductos(Producto[] productos) {
+        this.productos = productos;
     }
-
-    public void setNombresProducto(String[] nombresProducto) {
-        this.nombresProducto = nombresProducto;
-    }
-
-    public void setPreciosProducto(double[] precioProducto) {
-        this.preciosProducto = precioProducto;
-    }
-
     
     /*----------------Getters----------------*/
     public Cliente getCliente() {
         return cliente;
     }
 
-    public int[] getIdsProducto() {
-        return idsProducto;
+    public Producto[] getProductos() {
+        return productos;
     }
 
-    public String[] getNombresProducto() {
-        return nombresProducto;
-    }
-
-    public double[] getPreciosProducto() {
-        return preciosProducto;
-    }
+    
     
     
 }
