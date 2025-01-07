@@ -8,20 +8,27 @@ package com.vgmil.tienda;
  */
 public class Factura {
     Cliente cliente;
+    //FIX
     int idsProducto[];
     String nombresProducto[];
-    double precioProducto[];
+    double[] preciosProducto;
+    //
     /*Sobrecarga de Constructor*/
     //Factura con Datos
     public Factura(Cliente cliente, int[] idsProducto, String[] nombresProducto, double[] precioProducto) {
         this.cliente = cliente;
         this.idsProducto = idsProducto;
         this.nombresProducto = nombresProducto;
-        this.precioProducto = precioProducto;
+        this.preciosProducto = precioProducto;
     }
     //Factura sin Datos
     public Factura() {}
-
+   
+    //Seccion de metodos de Factura
+    public int getCantidadProductos(){
+        return idsProducto.length;
+    }
+    
 /*----------------Setters----------------*/
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
@@ -35,8 +42,8 @@ public class Factura {
         this.nombresProducto = nombresProducto;
     }
 
-    public void setPrecioProducto(double[] precioProducto) {
-        this.precioProducto = precioProducto;
+    public void setPreciosProducto(double[] precioProducto) {
+        this.preciosProducto = precioProducto;
     }
 
     
@@ -53,8 +60,8 @@ public class Factura {
         return nombresProducto;
     }
 
-    public double[] getPrecioProducto() {
-        return precioProducto;
+    public double[] getPreciosProducto() {
+        return preciosProducto;
     }
     
     
